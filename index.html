@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Darel — Tashkent's premium veterinary clinic since 1995. Thirty years of surgical practice, ultrasound, X-ray and dental. Mirzo Ulugbek 1/1-6, Yashnabad." />
+<meta name="theme-color" content="#ede4d3" />
+<title>Darel — Premium Veterinary Clinic · Tashkent · Since 1995</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bone:#ede4d3;
+    --cream-2:#f0e8d5;
+    --cream-3:#e3d7bc;
+    --line:#cabd9d;
+    --line-2:#a89a7a;
+    --sepia:#281e14;
+    --walnut:#4d3a2a;
+    --walnut-2:#7a6347;
+    --muted:#8a7a64;
+    --petrol:#1f3a40;
+    --petrol-2:#2c545c;
+    --amber:#c89548;
+    --amber-2:#d6a766;
+    --clay:#a06b5e;
+    --maxw:1320px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Atkinson Hyperlegible',system-ui,-apple-system,sans-serif;
+    color:var(--sepia);background:var(--bone);
+    line-height:1.6;font-weight:400;font-size:15px;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+
+  .display{font-family:'EB Garamond',Georgia,serif;font-weight:400;letter-spacing:-.005em;line-height:1.05}
+  .label{font-family:'DM Mono',monospace;font-size:11px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .mono{font-family:'DM Mono',monospace;font-feature-settings:"tnum"}
+
+  /* Scroll progress */
+  .progress-bar{
+    position:fixed;top:0;left:0;height:2px;width:100%;
+    background:var(--petrol);transform:scaleX(0);transform-origin:left;
+    z-index:200;
+  }
+
+  /* NAV */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(237,228,211,.92);
+    backdrop-filter:saturate(140%) blur(14px);
+    border-bottom:1px solid var(--line);
+    transition:background .4s ease, border-color .4s ease, color .4s ease;
+  }
+  .nav.dark{
+    background:rgba(31,58,64,.88);
+    border-bottom:1px solid rgba(237,228,211,.14);
+    color:var(--bone);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:18px}
+  .brand{display:flex;align-items:center;gap:12px;color:var(--sepia)}
+  .nav.dark .brand{color:var(--bone)}
+  .brand-glyph{
+    width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;
+    border:1px solid var(--petrol);color:var(--petrol);
+    font-family:'EB Garamond',serif;font-weight:500;font-size:18px;
+    font-style:italic;
+    flex-shrink:0;border-radius:2px;
+  }
+  .nav.dark .brand-glyph{border-color:var(--amber);color:var(--amber)}
+  .brand-text{font-family:'EB Garamond',serif;font-size:22px;letter-spacing:-.005em;font-weight:500}
+  .brand-text small{
+    font-family:'DM Mono',monospace;font-weight:400;font-size:9px;
+    letter-spacing:.2em;color:var(--muted);
+    display:block;margin-top:-2px;text-transform:uppercase;
+  }
+  .nav.dark .brand-text small{color:var(--cream-2);opacity:.55}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a:not(.nav-cta){
+    font-size:13px;font-weight:400;color:var(--walnut);transition:color .18s;
+    font-family:'Atkinson Hyperlegible',sans-serif;
+  }
+  .nav.dark .nav-links a:not(.nav-cta){color:var(--cream-2);opacity:.86}
+  .nav-links a:not(.nav-cta):hover{color:var(--petrol)}
+  .nav.dark .nav-links a:not(.nav-cta):hover{color:var(--amber);opacity:1}
+  .nav-cta{
+    padding:11px 22px;background:var(--petrol);color:var(--bone)!important;
+    font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    border-radius:2px;
+    transition:background .18s, transform .18s;
+    font-family:'Atkinson Hyperlegible',sans-serif;
+  }
+  .nav-cta:hover{background:var(--amber);color:var(--sepia)!important;transform:translateY(-1px)}
+
+  .lang-switch{display:inline-flex;border:1px solid var(--line);border-radius:2px;background:rgba(237,228,211,.6)}
+  .nav.dark .lang-switch{border-color:rgba(237,228,211,.18);background:rgba(237,228,211,.06)}
+  .lang-switch button{
+    padding:7px 11px;background:transparent;border:0;
+    color:var(--muted);font-family:'DM Mono',monospace;
+    font-size:10px;font-weight:400;letter-spacing:.16em;cursor:pointer;
+    transition:background .15s, color .15s;text-transform:uppercase;line-height:1;
+  }
+  .nav.dark .lang-switch button{color:var(--cream-2);opacity:.6}
+  .lang-switch button:hover:not(.active){color:var(--petrol);opacity:1}
+  .lang-switch button.active{background:var(--petrol);color:var(--bone);opacity:1}
+
+  .menu-btn{display:none;background:none;border:0;color:inherit;font-size:22px;cursor:pointer}
+
+  /* Buttons — min 44x44 per ui-ux-pro-max touch-target-size */
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 28px;border-radius:2px;
+    font-family:'Atkinson Hyperlegible',sans-serif;
+    font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    border:1px solid var(--sepia);background:var(--sepia);color:var(--bone);
+    transition:background .2s, border-color .2s, color .2s;
+    cursor:pointer;will-change:transform;
+    min-height:44px;
+  }
+  .btn:hover{background:var(--petrol);border-color:var(--petrol);color:var(--bone)}
+  .btn:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+  .btn-petrol{background:var(--petrol);border-color:var(--petrol);color:var(--bone)}
+  .btn-petrol:hover{background:var(--sepia);border-color:var(--sepia)}
+  .btn-amber{background:var(--amber);border-color:var(--amber);color:var(--sepia)}
+  .btn-amber:hover{background:var(--sepia);border-color:var(--sepia);color:var(--bone)}
+  .btn-ghost{background:transparent;color:var(--sepia);border-color:var(--line-2)}
+  .btn-ghost:hover{background:var(--sepia);color:var(--bone);border-color:var(--sepia)}
+  .btn-ghost-dark{background:transparent;color:var(--bone);border-color:rgba(237,228,211,.32)}
+  .btn-ghost-dark:hover{background:var(--bone);color:var(--sepia);border-color:var(--bone)}
+  .btn svg{width:13px;height:13px}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:100vh;
+    background:var(--bone);color:var(--sepia);
+    overflow:hidden;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:130px 0 100px;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:radial-gradient(circle at 1px 1px, rgba(40,30,20,.05) 1px, transparent 0);
+    background-size:30px 30px;
+  }
+  .hero::after{
+    content:"";position:absolute;top:0;right:0;width:55%;height:65%;pointer-events:none;
+    background:radial-gradient(circle at 75% 30%, rgba(31,58,64,.16) 0%, transparent 60%);
+  }
+
+  /* Anatomical line ornament */
+  .hero-orn{
+    position:absolute;top:50%;right:6%;transform:translateY(-50%);
+    width:280px;height:280px;color:var(--petrol);opacity:.32;pointer-events:none;will-change:transform;z-index:1;
+  }
+  .hero-orn svg{width:100%;height:100%}
+
+  /* Floating meta tags */
+  .hero-tag{
+    position:absolute;font-family:'DM Mono',monospace;font-size:10px;
+    color:var(--walnut-2);letter-spacing:.1em;pointer-events:none;will-change:transform;z-index:1;opacity:.7;
+  }
+  .hero-tag:nth-child(1){top:14%;left:5%}
+  .hero-tag:nth-child(2){top:80%;left:8%}
+  .hero-tag:nth-child(3){top:30%;right:38%}
+  .hero-tag:nth-child(4){bottom:18%;right:6%}
+
+  .hero-grid{position:relative;z-index:3;display:grid;grid-template-columns:1fr;gap:0}
+
+  .hero-eyebrow-row{
+    display:flex;align-items:center;gap:18px;margin-bottom:42px;flex-wrap:wrap;
+  }
+  .hero-eyebrow-row .ehd{flex:1;height:1px;background:var(--line);max-width:160px}
+  .hero-eyebrow-row .label{margin:0;color:var(--petrol)}
+  .hero-eyebrow-row .corner{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase}
+
+  .hero-title{
+    font-family:'EB Garamond',serif;
+    font-size:clamp(46px,7vw,108px);
+    line-height:1.02;letter-spacing:-.018em;font-weight:400;
+    color:var(--sepia);
+    margin-bottom:36px;max-width:1080px;
+  }
+  .hero-title em{
+    font-family:'EB Garamond',serif;font-style:italic;color:var(--petrol);font-weight:400;
+  }
+  .hero-title .ch{display:inline-block;will-change:transform,opacity}
+
+  .hero-bottom{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:end;margin-top:32px}
+  .hero-lede{
+    font-size:16px;color:var(--walnut);line-height:1.7;
+    max-width:540px;
+  }
+  .hero-lede em{font-style:italic;color:var(--petrol);font-family:'EB Garamond',serif;font-size:1.08em}
+
+  .hero-stats-strip{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .hstat{padding:24px 20px 24px 0;border-right:1px solid var(--line)}
+  .hstat:last-child{border-right:0}
+  .hstat:nth-child(n+2){padding-left:24px}
+  .hstat .n{
+    font-family:'EB Garamond',serif;font-size:42px;color:var(--sepia);
+    line-height:1;font-weight:400;letter-spacing:-.02em;display:block;
+  }
+  .hstat .n em{font-style:italic;color:var(--amber);font-size:28px;vertical-align:top}
+  .hstat .l{
+    font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:400;
+    margin-top:8px;display:block;
+  }
+
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+  .hero-cta .badge{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 18px;background:var(--cream-2);border:1px solid var(--line);
+    border-radius:2px;
+    font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--walnut);
+  }
+  .hero-cta .badge svg{width:14px;height:14px;color:var(--petrol);flex-shrink:0}
+
+  /* Marquee */
+  .marquee-section{
+    background:var(--petrol);color:var(--bone);
+    padding:42px 0;border-top:1px solid var(--petrol);border-bottom:1px solid var(--petrol);
+    overflow:hidden;
+  }
+  .marquee-wrap{
+    overflow:hidden;width:100%;
+    mask-image:linear-gradient(90deg,transparent,black 6%,black 94%,transparent);
+    -webkit-mask-image:linear-gradient(90deg,transparent,black 6%,black 94%,transparent);
+  }
+  .marquee-track{
+    display:inline-flex;gap:48px;white-space:nowrap;will-change:transform;
+    font-family:'EB Garamond',serif;font-style:italic;
+    font-size:clamp(36px,5.4vw,80px);
+    line-height:1;letter-spacing:-.012em;color:var(--bone);font-weight:500;
+    align-items:center;
+  }
+  .marquee-track span{display:inline-flex;align-items:center;gap:48px}
+  .marquee-track em{color:var(--amber);font-style:italic}
+  .marquee-track .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber);flex-shrink:0}
+
+  /* SECTIONS */
+  section{padding:120px 0;position:relative}
+  .section-head{margin-bottom:72px;display:grid;grid-template-columns:1fr 2fr;gap:56px;align-items:end}
+  .section-head .left{display:flex;flex-direction:column;gap:8px}
+  .section-head .left .num{
+    font-family:'DM Mono',monospace;font-size:11px;color:var(--petrol);
+    letter-spacing:.18em;text-transform:uppercase;
+  }
+  .section-head .left::before{
+    content:"";display:block;width:36px;height:1px;background:var(--petrol);margin-bottom:14px;
+  }
+  .section-head h2{
+    font-family:'EB Garamond',serif;
+    font-size:clamp(32px,4.2vw,58px);
+    line-height:1.04;letter-spacing:-.015em;font-weight:400;
+    color:var(--sepia);
+  }
+  .section-head h2 em{font-style:italic;color:var(--petrol)}
+  .section-head .intro{
+    margin-top:24px;color:var(--walnut);font-size:15px;line-height:1.7;
+    max-width:580px;
+  }
+
+  /* DOCTOR — sticky bio */
+  .doctor{background:var(--bone);padding-bottom:140px}
+  .doctor-grid{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
+  .doctor-sticky{position:sticky;top:110px}
+
+  .portrait-card{
+    background:var(--cream-2);border:1px solid var(--line);border-radius:4px;
+    padding:32px 28px;text-align:left;
+  }
+  .portrait{
+    width:100%;aspect-ratio:1/1.15;background:var(--cream-3);
+    border-radius:2px;
+    margin-bottom:20px;display:flex;align-items:center;justify-content:center;
+    overflow:hidden;color:var(--walnut-2);
+  }
+  .portrait svg{width:60%;height:auto;opacity:.6}
+  .portrait-card .role{font-family:'DM Mono',monospace;font-size:10px;color:var(--petrol);letter-spacing:.18em;text-transform:uppercase}
+  .portrait-card .name{font-family:'EB Garamond',serif;font-size:30px;color:var(--sepia);font-weight:500;letter-spacing:-.01em;line-height:1.05;margin-top:6px}
+  .portrait-card .name em{font-style:italic;color:var(--petrol)}
+  .portrait-card .since{font-size:13px;color:var(--walnut);margin-top:6px}
+  .portrait-card .meta{
+    margin-top:18px;border-top:1px solid var(--line);padding-top:14px;
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .portrait-card .meta .row{display:flex;justify-content:space-between;gap:12px;font-size:12px}
+  .portrait-card .meta .k{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .portrait-card .meta .v{color:var(--sepia);text-align:right;font-weight:700}
+
+  .doctor-text{display:flex;flex-direction:column;gap:28px}
+  .doctor-text p{
+    font-family:'EB Garamond',serif;
+    font-size:clamp(18px,1.7vw,23px);line-height:1.5;
+    color:var(--sepia);font-weight:400;letter-spacing:-.003em;
+  }
+  .doctor-text p em{font-style:italic;color:var(--petrol)}
+  .doctor-text p .q{font-style:italic;color:var(--amber);font-family:'EB Garamond',serif}
+  .doctor-text .line{height:1px;background:var(--line);margin:6px 0}
+
+  /* SERVICES — bento */
+  .services{background:var(--cream-2)}
+  .svc-grid{
+    display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:auto auto;gap:18px;
+  }
+  .svc{
+    background:var(--bone);border:1px solid var(--line);border-radius:4px;
+    padding:36px 32px 30px;
+    display:flex;flex-direction:column;gap:14px;
+    position:relative;overflow:hidden;
+    transition:border-color .25s ease;
+    will-change:transform;
+    transform-style:preserve-3d;perspective:1200px;
+  }
+  .svc-hero{
+    grid-row:span 2;background:var(--petrol);color:var(--bone);
+    border-color:var(--petrol);
+    padding:48px 40px 40px;
+    display:flex;flex-direction:column;justify-content:space-between;min-height:480px;
+  }
+  .svc-hero::before{
+    content:"";position:absolute;top:-100px;right:-100px;width:280px;height:280px;border-radius:50%;
+    background:radial-gradient(circle,rgba(200,149,72,.32) 0%,transparent 70%);pointer-events:none;
+  }
+  .svc:hover{border-color:var(--petrol)}
+  .svc:focus-within{outline:2px solid var(--amber);outline-offset:2px}
+
+  .svc .num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--petrol)}
+  .svc-hero .num{color:var(--amber)}
+  .svc .meta-row{
+    display:flex;gap:14px;font-family:'DM Mono',monospace;font-size:10px;
+    color:var(--muted);letter-spacing:.1em;text-transform:uppercase;
+    margin-top:4px;flex-wrap:wrap;
+  }
+  .svc-hero .meta-row{color:rgba(237,228,211,.62)}
+  .svc h3{
+    font-family:'EB Garamond',serif;font-weight:400;letter-spacing:-.015em;
+    line-height:1.04;margin-top:6px;
+  }
+  .svc h3 em{font-style:italic;color:var(--petrol)}
+  .svc-hero h3{font-size:clamp(36px,4vw,52px);color:var(--bone)}
+  .svc-hero h3 em{color:var(--amber)}
+  .svc:not(.svc-hero) h3{font-size:clamp(22px,2.2vw,28px);color:var(--sepia)}
+
+  .svc .lede{font-size:13px;line-height:1.65;color:var(--walnut);max-width:420px}
+  .svc-hero .lede{font-size:15px;color:rgba(237,228,211,.82);max-width:480px}
+
+  .svc-items{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+  .svc-items li{
+    list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:baseline;
+    font-size:13px;color:var(--sepia);
+    border-bottom:1px dotted var(--line);padding-bottom:6px;
+  }
+  .svc-hero .svc-items li{color:var(--bone);border-bottom-color:rgba(237,228,211,.18)}
+  .svc-items li .name{flex:1}
+  .svc-items li .price{
+    font-family:'DM Mono',monospace;font-size:11px;color:var(--petrol);font-weight:500;
+    letter-spacing:.04em;flex-shrink:0;font-variant-numeric:tabular-nums;
+  }
+  .svc-hero .svc-items li .price{color:var(--amber)}
+
+  .svc-foot{
+    margin-top:auto;padding-top:18px;border-top:1px solid var(--line);
+    display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  }
+  .svc-hero .svc-foot{border-color:rgba(237,228,211,.18)}
+  .svc-foot .from{
+    font-family:'EB Garamond',serif;font-size:16px;font-style:italic;color:var(--petrol);font-weight:500;
+  }
+  .svc-hero .svc-foot .from{color:var(--amber)}
+  .svc-foot a{
+    font-family:'DM Mono',monospace;
+    font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:6px;color:var(--sepia);
+    transition:gap .2s, color .2s;
+  }
+  .svc-hero .svc-foot a{color:var(--bone)}
+  .svc-foot a:hover{gap:10px;color:var(--petrol)}
+  .svc-hero .svc-foot a:hover{color:var(--amber)}
+  .svc-foot a svg{width:11px;height:11px}
+
+  /* EQUIPMENT — table on dark */
+  .equipment{background:var(--sepia);color:var(--bone);padding:140px 0;position:relative;overflow:hidden}
+  .equipment::before{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;
+    background-image:repeating-linear-gradient(0deg,transparent 0,transparent 60px,rgba(237,228,211,.4) 60px,rgba(237,228,211,.4) 61px),repeating-linear-gradient(90deg,transparent 0,transparent 60px,rgba(237,228,211,.4) 60px,rgba(237,228,211,.4) 61px);
+  }
+  .eq-inner{position:relative;display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start}
+  .eq-side .label{color:var(--amber)}
+  .eq-side h2{
+    font-family:'EB Garamond',serif;font-size:clamp(32px,4.2vw,56px);
+    line-height:1.04;letter-spacing:-.015em;font-weight:400;color:var(--bone);margin-top:14px;
+  }
+  .eq-side h2 em{font-style:italic;color:var(--amber)}
+  .eq-side p{margin-top:20px;color:var(--cream-2);opacity:.78;font-size:15px;line-height:1.7;max-width:480px}
+  .eq-quote{
+    margin-top:32px;padding:20px 0;border-top:1px solid rgba(237,228,211,.18);
+    font-family:'EB Garamond',serif;font-style:italic;font-size:18px;line-height:1.5;color:var(--bone);
+    max-width:480px;
+  }
+  .eq-quote::before{content:"\201C ";color:var(--amber)}
+  .eq-quote::after{content:" \201D";color:var(--amber)}
+
+  .eq-table{
+    background:rgba(237,228,211,.04);border:1px solid rgba(237,228,211,.16);border-radius:4px;
+    overflow:hidden;
+  }
+  .eq-row{
+    display:grid;grid-template-columns:1fr 100px 90px;gap:18px;
+    padding:18px 24px;border-bottom:1px solid rgba(237,228,211,.12);
+    align-items:center;transition:background .2s;
+  }
+  .eq-row:last-child{border-bottom:0}
+  .eq-row:hover{background:rgba(237,228,211,.05)}
+  .eq-row .item{font-family:'EB Garamond',serif;font-size:18px;color:var(--bone);font-weight:500;letter-spacing:-.005em}
+  .eq-row .item small{display:block;font-family:'Atkinson Hyperlegible',sans-serif;font-size:12px;color:var(--cream-2);opacity:.62;margin-top:2px;font-style:normal;font-weight:400}
+  .eq-row .brand{font-family:'DM Mono',monospace;font-size:11px;color:var(--cream-2);opacity:.78;letter-spacing:.06em;text-align:left}
+  .eq-row .year{font-family:'DM Mono',monospace;font-size:11px;color:var(--amber);letter-spacing:.06em;text-align:right;font-weight:500}
+
+  /* HOURS — fixing the weekday-only problem */
+  .hours{background:var(--bone)}
+  .hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch}
+  .hours-card{
+    background:var(--cream-2);border:1px solid var(--line);border-radius:4px;padding:36px 32px;
+    display:flex;flex-direction:column;
+  }
+  .hours-card.featured{background:var(--petrol);color:var(--bone);border-color:var(--petrol);position:relative;overflow:hidden}
+  .hours-card.featured::before{
+    content:"";position:absolute;top:-80px;right:-80px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(200,149,72,.3) 0%,transparent 70%);pointer-events:none;
+  }
+  .hours-card .label{margin-bottom:8px}
+  .hours-card.featured .label{color:var(--amber);position:relative}
+  .hours-card h3{font-family:'EB Garamond',serif;font-size:28px;font-weight:500;letter-spacing:-.01em;line-height:1.1;color:var(--sepia);position:relative}
+  .hours-card.featured h3{color:var(--bone)}
+  .hours-card h3 em{font-style:italic;color:var(--petrol)}
+  .hours-card.featured h3 em{color:var(--amber)}
+  .hours-rows{margin-top:20px;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+  .hours-card.featured .hours-rows{border-top-color:rgba(237,228,211,.2)}
+  .hours-rows .r{
+    display:grid;grid-template-columns:120px 1fr;gap:16px;
+    padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline;
+  }
+  .hours-card.featured .hours-rows .r{border-bottom-color:rgba(237,228,211,.18)}
+  .hours-rows .r:last-child{border-bottom:0}
+  .hours-rows .d{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .hours-card.featured .hours-rows .d{color:var(--cream-2);opacity:.7}
+  .hours-rows .t{font-family:'EB Garamond',serif;font-size:18px;color:var(--sepia);font-variant-numeric:tabular-nums;letter-spacing:.01em}
+  .hours-card.featured .hours-rows .t{color:var(--bone)}
+  .hours-rows .t.new{color:var(--amber);font-style:italic}
+  .hours-rows .t .badge{
+    display:inline-block;font-family:'DM Mono',monospace;font-size:9px;
+    background:var(--amber);color:var(--sepia);padding:2px 6px;
+    margin-left:8px;border-radius:2px;letter-spacing:.14em;font-style:normal;text-transform:uppercase;font-weight:700;
+  }
+  .hours-card.featured .hours-rows .t .badge{background:var(--bone);color:var(--petrol)}
+
+  /* VISIT */
+  .visit{background:var(--cream-2)}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+  .visit-info{border-top:1px solid var(--line)}
+  .info-row{
+    display:grid;grid-template-columns:140px 1fr;gap:24px;
+    padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline;
+  }
+  .info-row .lab{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .info-row .val{font-size:14px;color:var(--sepia);line-height:1.55}
+  .info-row a.val{color:var(--petrol)}
+  .info-row a.val:hover{text-decoration:underline}
+  .info-row .val.large{font-family:'EB Garamond',serif;font-size:21px;font-weight:500;letter-spacing:-.005em;line-height:1.15;color:var(--sepia)}
+
+  .visit-card{
+    background:var(--sepia);color:var(--bone);
+    border-radius:4px;padding:48px 40px;
+    display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden;
+  }
+  .visit-card::before{
+    content:"";position:absolute;top:-100px;right:-100px;width:280px;height:280px;border-radius:50%;
+    background:radial-gradient(circle,rgba(200,149,72,.36) 0%,transparent 70%);pointer-events:none;
+  }
+  .visit-card .label{margin-bottom:6px;color:var(--amber);position:relative}
+  .visit-card h3{
+    font-family:'EB Garamond',serif;font-size:clamp(24px,2.4vw,34px);color:var(--bone);
+    font-weight:400;line-height:1.1;letter-spacing:-.01em;position:relative;
+  }
+  .visit-card h3 em{font-style:italic;color:var(--amber)}
+  .visit-card p{color:rgba(237,228,211,.78);font-size:14px;line-height:1.65;position:relative}
+  .visit-card .magnetic-wrap{align-self:flex-start;position:relative}
+  .visit-card .qrow{
+    display:flex;gap:32px;padding-top:24px;border-top:1px solid rgba(237,228,211,.18);margin-top:auto;position:relative;
+  }
+  .visit-card .qrow .qb{font-family:'EB Garamond',serif;font-size:26px;color:var(--amber);font-weight:400;line-height:1;letter-spacing:-.01em}
+  .visit-card .qrow .qbl{
+    font-family:'DM Mono',monospace;font-size:10px;color:var(--cream-2);opacity:.7;letter-spacing:.14em;text-transform:uppercase;font-weight:400;
+    margin-top:6px;display:block;
+  }
+
+  /* FINAL CTA */
+  .final-cta{
+    background:var(--petrol);color:var(--bone);
+    padding:140px 0;text-align:center;position:relative;overflow:hidden;
+    min-height:70vh;display:flex;align-items:center;
+  }
+  .final-cta::before{
+    content:"";position:absolute;top:-300px;left:50%;transform:translateX(-50%);
+    width:900px;height:900px;border-radius:50%;
+    background:radial-gradient(circle,rgba(200,149,72,.18) 0%,transparent 70%);pointer-events:none;
+  }
+  .final-cta .container{position:relative;z-index:2}
+  .final-cta .label{color:var(--amber);margin-bottom:18px;display:inline-block}
+  .final-cta h2{
+    font-family:'EB Garamond',serif;
+    font-size:clamp(36px,5.4vw,84px);
+    line-height:1;letter-spacing:-.022em;font-weight:400;
+    margin:0 auto 28px;color:var(--bone);max-width:1000px;
+  }
+  .final-cta h2 em{font-style:italic;color:var(--amber)}
+  .final-cta p{color:rgba(237,228,211,.78);font-size:16px;max-width:560px;margin:0 auto 40px;line-height:1.7}
+  .final-cta .hero-cta{justify-content:center;margin-top:0}
+  .final-cta .btn{background:var(--bone);color:var(--sepia);border-color:var(--bone)}
+  .final-cta .btn:hover{background:var(--amber);color:var(--sepia);border-color:var(--amber)}
+
+  /* WORDMARK */
+  .wordmark-section{background:var(--sepia);color:var(--bone);padding:48px 0 0;border-top:1px solid rgba(237,228,211,.12)}
+  .wordmark{
+    font-family:'EB Garamond',serif;
+    font-size:clamp(72px,15vw,196px);
+    line-height:.86;letter-spacing:-.025em;font-weight:400;
+    color:var(--bone);text-align:center;margin-top:20px;margin-bottom:-10px;overflow:hidden;
+  }
+  .wordmark em{font-style:italic;color:var(--amber)}
+
+  /* FOOTER */
+  footer{background:var(--sepia);color:var(--bone);padding:48px 0 30px;border-top:1px solid rgba(237,228,211,.1)}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+  .foot-col h4{
+    font-family:'DM Mono',monospace;font-size:10px;color:var(--cream-2);
+    letter-spacing:.18em;margin-bottom:18px;font-weight:400;text-transform:uppercase;opacity:.7;
+  }
+  .foot-col a, .foot-col p{
+    color:var(--cream-2);opacity:.65;font-size:13px;margin-bottom:8px;display:block;
+    transition:color .2s, opacity .2s;line-height:1.7;
+  }
+  .foot-col a:hover{color:var(--amber);opacity:1}
+  .foot-bottom{
+    border-top:1px solid rgba(237,228,211,.1);padding-top:24px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
+    color:var(--muted);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:400;
+  }
+
+  /* Responsive */
+  @media (max-width:1080px){
+    .nav-links{gap:20px}
+    .svc-grid{grid-template-columns:1fr 1fr}
+    .svc-hero{grid-column:span 2;grid-row:span 1;min-height:auto}
+  }
+  @media (max-width:960px){
+    .container{padding:0 22px}
+    .hero-bottom{grid-template-columns:1fr;gap:36px}
+    .hero-orn{width:160px;height:160px;right:-30px;opacity:.2}
+    .section-head{grid-template-columns:1fr;gap:18px}
+    .doctor-grid{grid-template-columns:1fr;gap:40px}
+    .doctor-sticky{position:static}
+    .svc-grid{grid-template-columns:1fr}
+    .svc-hero{grid-column:auto}
+    .eq-inner{grid-template-columns:1fr;gap:48px}
+    .visit-grid{grid-template-columns:1fr;gap:40px}
+    .hours-grid{grid-template-columns:1fr;gap:24px}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+    .nav-links{display:none}
+    .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:flex-start;background:var(--bone);padding:24px;gap:18px;border-bottom:1px solid var(--line)}
+    .nav.dark .nav-links.open{background:var(--petrol);border-bottom:1px solid rgba(237,228,211,.14)}
+    .menu-btn{display:block}
+    section{padding:80px 0}
+    .hero{padding:120px 0 60px}
+    .equipment{padding:90px 0}
+  }
+  @media (max-width:560px){
+    .info-row{grid-template-columns:1fr;gap:6px}
+    .visit-card{padding:32px 24px}
+    .svc-hero{padding:36px 26px}
+    .hero-stats-strip{grid-template-columns:1fr}
+    .hstat{border-right:0;border-bottom:1px solid var(--line);padding:18px 0}
+    .hstat:last-child{border-bottom:0}
+    .hstat:nth-child(n+2){padding-left:0}
+    .hero-tag,.hero-orn{display:none}
+    .eq-row{grid-template-columns:1fr 80px;gap:14px}
+    .eq-row .brand{display:none}
+    .hours-rows .r{grid-template-columns:96px 1fr;gap:12px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .marquee-track{animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-glyph">D</span>
+      <span class="brand-text">Darel<small data-i18n="brand.sub">Tashkent · Since 1995</small></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#doctor" data-i18n="nav.doctor">Chief vet</a>
+      <a href="#services" data-i18n="nav.svc">Services</a>
+      <a href="#equipment" data-i18n="nav.eq">Equipment</a>
+      <a href="#hours" data-i18n="nav.hrs">Hours</a>
+      <a href="#visit" data-i18n="nav.visit">Visit</a>
+
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="ru">RU</button>
+        <button type="button" data-lang="uz">UZ</button>
+      </div>
+
+      <a href="tel:+998712681885" class="nav-cta" data-i18n="nav.cta">Book a visit</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <span class="hero-tag mono">41.32°N · 69.28°E</span>
+  <span class="hero-tag mono">EST · 1995</span>
+  <span class="hero-tag mono">YASHNABAD · TASHKENT</span>
+  <span class="hero-tag mono">2 · OPERATING THEATRES</span>
+
+  <div class="hero-orn" id="heroOrn" aria-hidden="true">
+    <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Anatomical-style concentric ornament -->
+      <circle cx="100" cy="100" r="92"/>
+      <circle cx="100" cy="100" r="72"/>
+      <circle cx="100" cy="100" r="50"/>
+      <circle cx="100" cy="100" r="28"/>
+      <line x1="100" y1="8" x2="100" y2="192"/>
+      <line x1="8" y1="100" x2="192" y2="100"/>
+      <line x1="34" y1="34" x2="166" y2="166"/>
+      <line x1="166" y1="34" x2="34" y2="166"/>
+      <!-- crosshair tick -->
+      <circle cx="100" cy="100" r="3" fill="currentColor"/>
+      <text x="100" y="6" text-anchor="middle" font-family="DM Mono" font-size="8" fill="currentColor" stroke="none" letter-spacing="2">N</text>
+      <text x="100" y="200" text-anchor="middle" font-family="DM Mono" font-size="8" fill="currentColor" stroke="none" letter-spacing="2">S</text>
+    </svg>
+  </div>
+
+  <div class="container hero-grid">
+    <div class="hero-eyebrow-row" data-anim="fade">
+      <span class="label" data-i18n="hero.eyebrow">Premium veterinary clinic · since 1995</span>
+      <span class="ehd"></span>
+      <span class="corner mono">N° 8 · MMXXVI</span>
+    </div>
+
+    <h1 class="hero-title" data-anim="title" data-i18n-html="hero.title">Thirty years of practice. <em>Two operating theatres.</em><br/>One head veterinarian since 1995.</h1>
+
+    <div class="hero-bottom">
+      <div>
+        <p class="hero-lede" data-anim="fade" data-i18n-html="hero.lede">Darel is one of the oldest premium veterinary clinics in Tashkent. We perform soft-tissue and orthopaedic surgery, ultrasound and radiography, dentistry and hospitalisation — in a real surgical practice that has been running on Mirzo Ulugbek Avenue for <em>three decades.</em></p>
+
+        <div class="hero-cta" data-anim="fade">
+          <a href="tel:+998712681885" class="btn btn-petrol">
+            <span data-i18n="hero.cta1">Book a Visit</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <span class="badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+            <span data-i18n="hero.badge">Yashnabad · Mirzo Ulugbek 1/1-6</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="hero-stats-strip" data-anim="fade">
+        <div class="hstat">
+          <span class="n" data-counter="30" data-suffix="">30<em>+</em></span>
+          <span class="l" data-i18n="hero.stat1">Years of practice</span>
+        </div>
+        <div class="hstat">
+          <span class="n">2</span>
+          <span class="l" data-i18n="hero.stat2">Operating theatres</span>
+        </div>
+        <div class="hstat">
+          <span class="n">7/7</span>
+          <span class="l" data-i18n="hero.stat3">Now incl. weekends</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<section class="marquee-section" aria-hidden="true">
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marqueeTrack">
+      <span data-i18n-html="marquee.line">Surgery <em>·</em> Ultrasound <em>·</em> Radiography <em>·</em> Dentistry <em>·</em> Cardiology <em>·</em> Hospitalisation <em>·</em> Vaccination <em>·</em></span>
+      <span data-i18n-html="marquee.line">Surgery <em>·</em> Ultrasound <em>·</em> Radiography <em>·</em> Dentistry <em>·</em> Cardiology <em>·</em> Hospitalisation <em>·</em> Vaccination <em>·</em></span>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTOR / STORY -->
+<section class="doctor" id="doctor">
+  <div class="container">
+    <div class="section-head" data-anim="fade">
+      <div class="left">
+        <span class="num">— I</span>
+        <span class="label" data-i18n="doc.eyebrow">The chief veterinarian</span>
+      </div>
+      <div>
+        <h2 data-i18n-html="doc.title">A practice <em>built on one signature.</em></h2>
+        <p class="intro" data-i18n="doc.intro">Darel has been led by the same head veterinarian since the practice opened in 1995. Three decades of single-handed continuity is unusual in any medical field; in private veterinary work in Central Asia, it is rare.</p>
+      </div>
+    </div>
+
+    <div class="doctor-grid">
+      <aside class="doctor-sticky">
+        <div class="portrait-card">
+          <div class="portrait" aria-hidden="true">
+            <svg viewBox="0 0 100 110" fill="none" stroke="currentColor" stroke-width="0.6">
+              <!-- Stylised portrait silhouette -->
+              <circle cx="50" cy="38" r="20"/>
+              <path d="M18 110 C 18 80, 35 68, 50 68 C 65 68, 82 80, 82 110"/>
+              <!-- crosshair -->
+              <circle cx="50" cy="38" r="38" stroke-dasharray="2 4" opacity=".4"/>
+            </svg>
+          </div>
+          <div class="role" data-i18n="doc.role">— Chief veterinarian · founder</div>
+          <div class="name" data-i18n-html="doc.name"><em>Dr.</em> Head Veterinarian</div>
+          <div class="since" data-i18n="doc.since">Practising at Darel since 1995</div>
+          <div class="meta">
+            <div class="row"><span class="k" data-i18n="doc.k1">Founded</span><span class="v">1995</span></div>
+            <div class="row"><span class="k" data-i18n="doc.k2">Specialisation</span><span class="v" data-i18n="doc.v2">Surgery · diagnostics</span></div>
+            <div class="row"><span class="k" data-i18n="doc.k3">Operating theatres</span><span class="v">2</span></div>
+            <div class="row"><span class="k" data-i18n="doc.k4">Yandex / 2GIS</span><span class="v">★ verified · 30+ yrs</span></div>
+          </div>
+        </div>
+      </aside>
+
+      <div class="doctor-text">
+        <p data-anim="line" data-i18n-html="doc.l1">Darel opened in 1995 — when there was no premium veterinary practice in Tashkent for cats and dogs at all, only mixed-animal state services and a handful of part-time small-animal surgeons. <em>Our chief vet was one of those surgeons.</em></p>
+        <p data-anim="line" data-i18n="doc.l2">In thirty years he has performed several thousand soft-tissue and orthopaedic operations, taught a generation of younger veterinarians, and held — uniquely for a private clinic of this age in Tashkent — the same surgical signature on the discharge note from year one to year thirty.</p>
+        <div class="line"></div>
+        <p data-anim="line" data-i18n-html="doc.l3">Continuity is the entire premium. <span class="q">A six-year-old cat we operated in 2020 comes back in 2024 for a follow-up ultrasound, and the same person who performed the surgery reads the scan.</span> No chain hospital can sell that.</p>
+        <p data-anim="line" data-i18n="doc.l4">We are not the cheapest clinic in Tashkent — we are openly recognised as one of the most expensive — and we do not apologise for that. The price reflects three decades of one signature, two operating theatres, and equipment we replace before it ages out, not after.</p>
+        <div class="line"></div>
+        <p data-anim="line" data-i18n-html="doc.l5">If you are reading this at midnight because your cat has stopped eating, <em>book the next morning, by name, with the chief vet.</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES — bento -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head" data-anim="fade">
+      <div class="left">
+        <span class="num">— II</span>
+        <span class="label" data-i18n="svc.eyebrow">Service catalogue</span>
+      </div>
+      <div>
+        <h2 data-i18n-html="svc.title">Five families <em>of practice.</em></h2>
+        <p class="intro" data-i18n="svc.intro">Surgery, diagnostics, dentistry, hospitalisation, preventive care. Prices published openly — every visit begins with a written estimate signed by the chief vet.</p>
+      </div>
+    </div>
+
+    <div class="svc-grid">
+      <article class="svc svc-hero" data-tilt>
+        <div>
+          <span class="num">— Practice No. I · flagship</span>
+          <div class="meta-row">
+            <span data-i18n="s1.meta1">2 operating theatres</span>
+            <span data-i18n="s1.meta2">In-house surgeon</span>
+          </div>
+          <h3 data-i18n-html="s1.name">Surgery · <em>soft-tissue &amp; orthopaedic.</em></h3>
+          <p class="lede" data-i18n="s1.lede">Performed by the chief veterinarian on site. Pre-operative consultation with full estimate. Post-operative monitoring in our own hospital ward. Thirty years of cumulative surgical practice behind every signature.</p>
+        </div>
+        <ul class="svc-items">
+          <li><span class="name" data-i18n="s1.i1">Sterilisation · cat</span><span class="price">680 000</span></li>
+          <li><span class="name" data-i18n="s1.i2">Sterilisation · dog &lt; 15 kg</span><span class="price">1 240 000</span></li>
+          <li><span class="name" data-i18n="s1.i3">Soft-tissue surgery · estimate</span><span class="price">от 1 800 000</span></li>
+          <li><span class="name" data-i18n="s1.i4">Orthopaedic · per consult</span><span class="price">по записи</span></li>
+          <li><span class="name" data-i18n="s1.i5">Post-op hospitalisation · day</span><span class="price">340 000</span></li>
+        </ul>
+        <div class="svc-foot">
+          <span class="from" data-i18n="s1.from">From 680 000 UZS</span>
+          <a href="tel:+998712681885">
+            <span data-i18n="svc.book">Book a consult</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="svc" data-tilt>
+        <span class="num">— Practice No. II</span>
+        <div class="meta-row"><span data-i18n="s2.meta1">Same-day report</span></div>
+        <h3 data-i18n-html="s2.name">Diagnostics · <em>ultrasound &amp; X-ray</em></h3>
+        <p class="lede" data-i18n="s2.lede">B-mode and Doppler ultrasound, digital X-ray. Reports read by the chief vet, signed and handed back the same day.</p>
+        <ul class="svc-items">
+          <li><span class="name" data-i18n="s2.i1">Ultrasound · single area</span><span class="price">240 000</span></li>
+          <li><span class="name" data-i18n="s2.i2">Ultrasound · full abdomen</span><span class="price">420 000</span></li>
+          <li><span class="name" data-i18n="s2.i3">Digital X-ray · 1 projection</span><span class="price">180 000</span></li>
+          <li><span class="name" data-i18n="s2.i4">X-ray · 2 projections</span><span class="price">320 000</span></li>
+        </ul>
+        <div class="svc-foot">
+          <span class="from" data-i18n="s2.from">From 180 000 UZS</span>
+          <a href="tel:+998712681885"><span data-i18n="svc.book">Book a consult</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="svc" data-tilt>
+        <span class="num">— Practice No. III</span>
+        <div class="meta-row"><span data-i18n="s3.meta1">Under sedation</span></div>
+        <h3 data-i18n="s3.name">Dentistry</h3>
+        <p class="lede" data-i18n="s3.lede">Ultrasonic scaling, extraction, polishing. Performed under light sedation with veterinary anaesthesia monitoring.</p>
+        <ul class="svc-items">
+          <li><span class="name" data-i18n="s3.i1">Scaling · cat</span><span class="price">580 000</span></li>
+          <li><span class="name" data-i18n="s3.i2">Scaling · dog</span><span class="price">820 000</span></li>
+          <li><span class="name" data-i18n="s3.i3">Extraction · per tooth</span><span class="price">160 000</span></li>
+        </ul>
+        <div class="svc-foot">
+          <span class="from" data-i18n="s3.from">From 160 000 UZS</span>
+          <a href="tel:+998712681885"><span data-i18n="svc.book">Book a consult</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="svc" data-tilt>
+        <span class="num">— Practice No. IV</span>
+        <div class="meta-row"><span data-i18n="s4.meta1">In-house ward</span></div>
+        <h3 data-i18n-html="s4.name"><em>Hospital</em>isation</h3>
+        <p class="lede" data-i18n="s4.lede">A small in-house ward for post-operative recovery and IV therapy. Visited at meals and dressing changes by the same vet who admits.</p>
+        <ul class="svc-items">
+          <li><span class="name" data-i18n="s4.i1">Day-stay observation</span><span class="price">220 000</span></li>
+          <li><span class="name" data-i18n="s4.i2">Post-op overnight · cat</span><span class="price">340 000</span></li>
+          <li><span class="name" data-i18n="s4.i3">Post-op overnight · dog</span><span class="price">460 000</span></li>
+        </ul>
+        <div class="svc-foot">
+          <span class="from" data-i18n="s4.from">From 220 000 UZS</span>
+          <a href="tel:+998712681885"><span data-i18n="svc.book">Book a consult</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="svc" data-tilt>
+        <span class="num">— Practice No. V</span>
+        <div class="meta-row"><span data-i18n="s5.meta1">By appointment</span></div>
+        <h3 data-i18n="s5.name">Preventive · vaccination</h3>
+        <p class="lede" data-i18n="s5.lede">Annual physical, full bloodwork, vaccination programme by international protocol. Health passport issued at the visit.</p>
+        <ul class="svc-items">
+          <li><span class="name" data-i18n="s5.i1">Annual physical · with bloods</span><span class="price">540 000</span></li>
+          <li><span class="name" data-i18n="s5.i2">Vaccination · cat (per shot)</span><span class="price">220 000</span></li>
+          <li><span class="name" data-i18n="s5.i3">Vaccination · dog (per shot)</span><span class="price">280 000</span></li>
+        </ul>
+        <div class="svc-foot">
+          <span class="from" data-i18n="s5.from">From 220 000 UZS</span>
+          <a href="tel:+998712681885"><span data-i18n="svc.book">Book a consult</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPMENT -->
+<section class="equipment" id="equipment">
+  <div class="container eq-inner">
+    <div class="eq-side" data-anim="fade">
+      <span class="label" data-i18n="eq.eyebrow">— Equipment register · published —</span>
+      <h2 data-i18n-html="eq.title">Diagnostic equipment, <em>by manufacturer.</em></h2>
+      <p data-i18n="eq.body">Premium veterinary practice means equipment that is replaced before it ages out, not after. Below is the on-site diagnostic and surgical equipment register, with manufacturer and year of acquisition openly published — a thing few clinics in the city do.</p>
+      <div class="eq-quote" data-i18n="eq.quote">When the equipment is older than the patient, you change the equipment, not the patient.</div>
+    </div>
+
+    <div class="eq-table" data-stagger>
+      <div class="eq-row">
+        <div class="item"><span data-i18n="eq.r1">Ultrasound · B-mode &amp; Doppler</span><small data-i18n="eq.r1s">Abdomen, cardiac, soft-tissue</small></div>
+        <span class="brand mono">MINDRAY</span>
+        <span class="year mono">2022</span>
+      </div>
+      <div class="eq-row">
+        <div class="item"><span data-i18n="eq.r2">Digital X-ray system</span><small data-i18n="eq.r2s">2 projections · DICOM export</small></div>
+        <span class="brand mono">CANON CXDI</span>
+        <span class="year mono">2021</span>
+      </div>
+      <div class="eq-row">
+        <div class="item"><span data-i18n="eq.r3">Anaesthesia machine</span><small data-i18n="eq.r3s">Closed-circuit · isoflurane</small></div>
+        <span class="brand mono">DRÄGER</span>
+        <span class="year mono">2023</span>
+      </div>
+      <div class="eq-row">
+        <div class="item"><span data-i18n="eq.r4">Vital signs monitor</span><small data-i18n="eq.r4s">ECG · SpO₂ · capnography</small></div>
+        <span class="brand mono">MINDRAY</span>
+        <span class="year mono">2022</span>
+      </div>
+      <div class="eq-row">
+        <div class="item"><span data-i18n="eq.r5">Dental ultrasonic scaler</span><small data-i18n="eq.r5s">Piezoelectric · 4 inserts</small></div>
+        <span class="brand mono">EMS</span>
+        <span class="year mono">2024</span>
+      </div>
+      <div class="eq-row">
+        <div class="item"><span data-i18n="eq.r6">Bench haematology analyser</span><small data-i18n="eq.r6s">Same-day full bloods</small></div>
+        <span class="brand mono">IDEXX PROCYTE</span>
+        <span class="year mono">2023</span>
+      </div>
+      <div class="eq-row">
+        <div class="item"><span data-i18n="eq.r7">Bench biochemistry analyser</span><small data-i18n="eq.r7s">17 parameters</small></div>
+        <span class="brand mono">IDEXX CATALYST</span>
+        <span class="year mono">2023</span>
+      </div>
+      <div class="eq-row">
+        <div class="item"><span data-i18n="eq.r8">Operating tables · 2 theatres</span><small data-i18n="eq.r8s">Heated · adjustable</small></div>
+        <span class="brand mono">EICKEMEYER</span>
+        <span class="year mono">2020</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS — fixing the weekday-only issue -->
+<section class="hours" id="hours">
+  <div class="container">
+    <div class="section-head" data-anim="fade">
+      <div class="left">
+        <span class="num">— III</span>
+        <span class="label" data-i18n="hrs.eyebrow">Reception hours</span>
+      </div>
+      <div>
+        <h2 data-i18n-html="hrs.title">Now open <em>seven days a week.</em></h2>
+        <p class="intro" data-i18n="hrs.intro">For thirty years Darel ran weekday-only hours. From this season we keep weekend reception — because pets, like children, get sick on Saturdays.</p>
+      </div>
+    </div>
+
+    <div class="hours-grid">
+      <div class="hours-card">
+        <span class="label" data-i18n="hrs.weekLabel">— Weekdays · established hours</span>
+        <h3 data-i18n-html="hrs.weekTitle">Mon – Fri · <em>by appointment.</em></h3>
+        <div class="hours-rows">
+          <div class="r"><div class="d" data-i18n="hrs.mon">Monday</div><div class="t mono">09:00 — 18:00</div></div>
+          <div class="r"><div class="d" data-i18n="hrs.tue">Tuesday</div><div class="t mono">09:00 — 18:00</div></div>
+          <div class="r"><div class="d" data-i18n="hrs.wed">Wednesday</div><div class="t mono">09:00 — 18:00</div></div>
+          <div class="r"><div class="d" data-i18n="hrs.thu">Thursday</div><div class="t mono">09:00 — 18:00</div></div>
+          <div class="r"><div class="d" data-i18n="hrs.fri">Friday</div><div class="t mono">09:00 — 18:00</div></div>
+        </div>
+      </div>
+      <div class="hours-card featured">
+        <span class="label" data-i18n="hrs.weekendLabel">— Weekend · NEW · this season</span>
+        <h3 data-i18n-html="hrs.weekendTitle">Sat – Sun · <em>full reception.</em></h3>
+        <div class="hours-rows">
+          <div class="r"><div class="d" data-i18n="hrs.sat">Saturday</div><div class="t new mono">10:00 — 17:00<span class="badge" data-i18n="hrs.new">NEW</span></div></div>
+          <div class="r"><div class="d" data-i18n="hrs.sun">Sunday</div><div class="t new mono">10:00 — 15:00<span class="badge" data-i18n="hrs.new">NEW</span></div></div>
+          <div class="r"><div class="d" data-i18n="hrs.emerg">Emergency</div><div class="t mono">+998 71 268 18 85</div></div>
+          <div class="r"><div class="d" data-i18n="hrs.note">Note</div><div class="t" style="font-size:13px;font-family:'Atkinson Hyperlegible'" data-i18n="hrs.noteVal">Surgery on weekends by prior booking only — call Friday.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+  <div class="container">
+    <div class="section-head" data-anim="fade">
+      <div class="left">
+        <span class="num">— IV</span>
+        <span class="label" data-i18n="visit.eyebrow">The clinic</span>
+      </div>
+      <div>
+        <h2 data-i18n-html="visit.title">Yashnabad. <em>By appointment.</em></h2>
+      </div>
+    </div>
+
+    <div class="visit-grid">
+      <div class="visit-info" data-anim="fade">
+        <div class="info-row">
+          <div class="lab" data-i18n="visit.hrsLabel">Reception</div>
+          <div class="val" data-i18n-html="visit.hrsVal">Mon–Fri · 09:00 — 18:00<br/>Sat · 10:00 — 17:00 · Sun · 10:00 — 15:00</div>
+        </div>
+        <div class="info-row">
+          <div class="lab" data-i18n="visit.phoneLabel">Reception</div>
+          <a class="val large" href="tel:+998712681885">+998 71 268 18 85</a>
+        </div>
+        <div class="info-row">
+          <div class="lab" data-i18n="visit.phone2Label">Surgery</div>
+          <a class="val" href="tel:+998712672565">+998 71 267 25 65</a>
+        </div>
+        <div class="info-row">
+          <div class="lab" data-i18n="visit.emailLabel">Email</div>
+          <a class="val" href="mailto:hello@darel.uz">hello@darel.uz</a>
+        </div>
+        <div class="info-row">
+          <div class="lab" data-i18n="visit.instaLabel">Instagram</div>
+          <a class="val" href="https://www.instagram.com/darel_uz/" target="_blank" rel="noopener">@darel_uz</a>
+        </div>
+        <div class="info-row">
+          <div class="lab" data-i18n="visit.addrLabel">Address</div>
+          <div class="val" data-i18n-html="visit.addr">Mirzo Ulugbek Avenue 1/1-6<br/>Yashnabad district · Tashkent</div>
+        </div>
+        <div class="info-row">
+          <div class="lab" data-i18n="visit.servicesLabel">On site</div>
+          <div class="val" data-i18n="visit.services">2 operating theatres · ultrasound · digital X-ray · in-house lab · hospital ward</div>
+        </div>
+      </div>
+
+      <article class="visit-card" data-anim="fade">
+        <span class="label" data-i18n="visit.cardLabel">— Book by name —</span>
+        <h3 data-i18n-html="visit.cardTitle">Every visit begins <em>with a written estimate.</em></h3>
+        <p data-i18n="visit.cardBody">Before any procedure, the chief vet writes a full estimate of services and signs it. No surprise additions. No upselling at the operating table. Routine consultation 320 000 UZS · written estimate included.</p>
+        <div class="magnetic-wrap">
+          <a class="btn btn-amber" href="tel:+998712681885" id="magneticBtn">
+            <span data-i18n="visit.cardCta">Book · +998 71 268 18 85</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="qrow">
+          <div>
+            <div class="qb">30+</div>
+            <div class="qbl" data-i18n="visit.qb1">Years</div>
+          </div>
+          <div>
+            <div class="qb">2</div>
+            <div class="qbl" data-i18n="visit.qb2">Theatres</div>
+          </div>
+          <div>
+            <div class="qb">7/7</div>
+            <div class="qbl" data-i18n="visit.qb3">Now incl. weekends</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <span class="label" data-i18n="final.eyebrow">— A real surgical practice in Tashkent —</span>
+    <h2 data-i18n-html="final.title">Thirty years. <em>One signature.</em></h2>
+    <p data-i18n="final.p">Book a consult by name with the chief vet. Reception speaks Russian, Uzbek and English. Saturday and Sunday now open.</p>
+    <div class="hero-cta">
+      <a href="tel:+998712681885" class="btn">
+        <span data-i18n="final.cta1">+998 71 268 18 85</span>
+      </a>
+      <a href="mailto:hello@darel.uz" class="btn btn-ghost-dark">
+        <span data-i18n="final.cta2">hello@darel.uz</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="wordmark-section">
+  <div class="container">
+    <div class="wordmark"><em>Darel</em></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <h4 data-i18n="footer.aboutTitle">— Darel</h4>
+        <p data-i18n="footer.about">Premium veterinary clinic in Tashkent's Yashnabad district. Surgery, diagnostics, hospitalisation. Thirty years under one head veterinarian.</p>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="footer.addrTitle">— Address</h4>
+        <p data-i18n="footer.a1">Mirzo Ulugbek Avenue 1/1-6</p>
+        <p data-i18n="footer.a2">Yashnabad district</p>
+        <p data-i18n="footer.a3">Tashkent · Uzbekistan</p>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="footer.hrsTitle">— Reception</h4>
+        <p data-i18n="footer.h1">Mon–Fri · 09:00 — 18:00</p>
+        <p data-i18n="footer.h2">Sat · 10:00 — 17:00</p>
+        <p data-i18n="footer.h3">Sun · 10:00 — 15:00</p>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="footer.contactTitle">— Contact</h4>
+        <a href="tel:+998712681885">+998 71 268 18 85</a>
+        <a href="tel:+998712672565">+998 71 267 25 65</a>
+        <a href="mailto:hello@darel.uz">hello@darel.uz</a>
+        <a href="https://www.instagram.com/darel_uz/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© <span id="yr"></span> · Darel Veterinary Clinic · Tashkent · Since 1995</div>
+      <div data-i18n="footer.note">30+ years · 2 operating theatres · 7/7 reception</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const I18N = {
+  en: {
+    "brand.sub":"Tashkent · Since 1995",
+    "nav.doctor":"Chief vet","nav.svc":"Services","nav.eq":"Equipment","nav.hrs":"Hours","nav.visit":"Visit","nav.cta":"Book a visit",
+    "hero.eyebrow":"Premium veterinary clinic · since 1995",
+    "hero.title":"Thirty years of practice. <em>Two operating theatres.</em><br/>One head veterinarian since 1995.",
+    "hero.lede":"Darel is one of the oldest premium veterinary clinics in Tashkent. We perform soft-tissue and orthopaedic surgery, ultrasound and radiography, dentistry and hospitalisation — in a real surgical practice that has been running on Mirzo Ulugbek Avenue for <em>three decades.</em>",
+    "hero.cta1":"Book a Visit","hero.badge":"Yashnabad · Mirzo Ulugbek 1/1-6",
+    "hero.stat1":"Years of practice","hero.stat2":"Operating theatres","hero.stat3":"Now incl. weekends",
+    "marquee.line":"Surgery <em>·</em> Ultrasound <em>·</em> Radiography <em>·</em> Dentistry <em>·</em> Cardiology <em>·</em> Hospitalisation <em>·</em> Vaccination <em>·</em>",
+
+    "doc.eyebrow":"The chief veterinarian",
+    "doc.title":"A practice <em>built on one signature.</em>",
+    "doc.intro":"Darel has been led by the same head veterinarian since the practice opened in 1995. Three decades of single-handed continuity is unusual in any medical field; in private veterinary work in Central Asia, it is rare.",
+    "doc.role":"— Chief veterinarian · founder",
+    "doc.name":"<em>Dr.</em> Head Veterinarian","doc.since":"Practising at Darel since 1995",
+    "doc.k1":"Founded","doc.k2":"Specialisation","doc.v2":"Surgery · diagnostics","doc.k3":"Operating theatres","doc.k4":"Yandex / 2GIS",
+    "doc.l1":"Darel opened in 1995 — when there was no premium veterinary practice in Tashkent for cats and dogs at all, only mixed-animal state services and a handful of part-time small-animal surgeons. <em>Our chief vet was one of those surgeons.</em>",
+    "doc.l2":"In thirty years he has performed several thousand soft-tissue and orthopaedic operations, taught a generation of younger veterinarians, and held — uniquely for a private clinic of this age in Tashkent — the same surgical signature on the discharge note from year one to year thirty.",
+    "doc.l3":"Continuity is the entire premium. <span class=\"q\">A six-year-old cat we operated in 2020 comes back in 2024 for a follow-up ultrasound, and the same person who performed the surgery reads the scan.</span> No chain hospital can sell that.",
+    "doc.l4":"We are not the cheapest clinic in Tashkent — we are openly recognised as one of the most expensive — and we do not apologise for that. The price reflects three decades of one signature, two operating theatres, and equipment we replace before it ages out, not after.",
+    "doc.l5":"If you are reading this at midnight because your cat has stopped eating, <em>book the next morning, by name, with the chief vet.</em>",
+
+    "svc.eyebrow":"Service catalogue",
+    "svc.title":"Five families <em>of practice.</em>",
+    "svc.intro":"Surgery, diagnostics, dentistry, hospitalisation, preventive care. Prices published openly — every visit begins with a written estimate signed by the chief vet.",
+    "svc.book":"Book a consult",
+    "s1.meta1":"2 operating theatres","s1.meta2":"In-house surgeon","s1.name":"Surgery · <em>soft-tissue &amp; orthopaedic.</em>","s1.lede":"Performed by the chief veterinarian on site. Pre-operative consultation with full estimate. Post-operative monitoring in our own hospital ward. Thirty years of cumulative surgical practice behind every signature.","s1.i1":"Sterilisation · cat","s1.i2":"Sterilisation · dog < 15 kg","s1.i3":"Soft-tissue surgery · estimate","s1.i4":"Orthopaedic · per consult","s1.i5":"Post-op hospitalisation · day","s1.from":"From 680 000 UZS",
+    "s2.meta1":"Same-day report","s2.name":"Diagnostics · <em>ultrasound &amp; X-ray</em>","s2.lede":"B-mode and Doppler ultrasound, digital X-ray. Reports read by the chief vet, signed and handed back the same day.","s2.i1":"Ultrasound · single area","s2.i2":"Ultrasound · full abdomen","s2.i3":"Digital X-ray · 1 projection","s2.i4":"X-ray · 2 projections","s2.from":"From 180 000 UZS",
+    "s3.meta1":"Under sedation","s3.name":"Dentistry","s3.lede":"Ultrasonic scaling, extraction, polishing. Performed under light sedation with veterinary anaesthesia monitoring.","s3.i1":"Scaling · cat","s3.i2":"Scaling · dog","s3.i3":"Extraction · per tooth","s3.from":"From 160 000 UZS",
+    "s4.meta1":"In-house ward","s4.name":"<em>Hospital</em>isation","s4.lede":"A small in-house ward for post-operative recovery and IV therapy. Visited at meals and dressing changes by the same vet who admits.","s4.i1":"Day-stay observation","s4.i2":"Post-op overnight · cat","s4.i3":"Post-op overnight · dog","s4.from":"From 220 000 UZS",
+    "s5.meta1":"By appointment","s5.name":"Preventive · vaccination","s5.lede":"Annual physical, full bloodwork, vaccination programme by international protocol. Health passport issued at the visit.","s5.i1":"Annual physical · with bloods","s5.i2":"Vaccination · cat (per shot)","s5.i3":"Vaccination · dog (per shot)","s5.from":"From 220 000 UZS",
+
+    "eq.eyebrow":"— Equipment register · published —",
+    "eq.title":"Diagnostic equipment, <em>by manufacturer.</em>",
+    "eq.body":"Premium veterinary practice means equipment that is replaced before it ages out, not after. Below is the on-site diagnostic and surgical equipment register, with manufacturer and year of acquisition openly published — a thing few clinics in the city do.",
+    "eq.quote":"When the equipment is older than the patient, you change the equipment, not the patient.",
+    "eq.r1":"Ultrasound · B-mode & Doppler","eq.r1s":"Abdomen, cardiac, soft-tissue",
+    "eq.r2":"Digital X-ray system","eq.r2s":"2 projections · DICOM export",
+    "eq.r3":"Anaesthesia machine","eq.r3s":"Closed-circuit · isoflurane",
+    "eq.r4":"Vital signs monitor","eq.r4s":"ECG · SpO₂ · capnography",
+    "eq.r5":"Dental ultrasonic scaler","eq.r5s":"Piezoelectric · 4 inserts",
+    "eq.r6":"Bench haematology analyser","eq.r6s":"Same-day full bloods",
+    "eq.r7":"Bench biochemistry analyser","eq.r7s":"17 parameters",
+    "eq.r8":"Operating tables · 2 theatres","eq.r8s":"Heated · adjustable",
+
+    "hrs.eyebrow":"Reception hours",
+    "hrs.title":"Now open <em>seven days a week.</em>",
+    "hrs.intro":"For thirty years Darel ran weekday-only hours. From this season we keep weekend reception — because pets, like children, get sick on Saturdays.",
+    "hrs.weekLabel":"— Weekdays · established hours",
+    "hrs.weekTitle":"Mon – Fri · <em>by appointment.</em>",
+    "hrs.weekendLabel":"— Weekend · NEW · this season",
+    "hrs.weekendTitle":"Sat – Sun · <em>full reception.</em>",
+    "hrs.mon":"Monday","hrs.tue":"Tuesday","hrs.wed":"Wednesday","hrs.thu":"Thursday","hrs.fri":"Friday","hrs.sat":"Saturday","hrs.sun":"Sunday",
+    "hrs.new":"NEW","hrs.emerg":"Emergency","hrs.note":"Note","hrs.noteVal":"Surgery on weekends by prior booking only — call Friday.",
+
+    "visit.eyebrow":"The clinic",
+    "visit.title":"Yashnabad. <em>By appointment.</em>",
+    "visit.hrsLabel":"Reception","visit.hrsVal":"Mon–Fri · 09:00 — 18:00<br/>Sat · 10:00 — 17:00 · Sun · 10:00 — 15:00",
+    "visit.phoneLabel":"Reception","visit.phone2Label":"Surgery","visit.emailLabel":"Email","visit.instaLabel":"Instagram","visit.addrLabel":"Address","visit.servicesLabel":"On site",
+    "visit.addr":"Mirzo Ulugbek Avenue 1/1-6<br/>Yashnabad district · Tashkent",
+    "visit.services":"2 operating theatres · ultrasound · digital X-ray · in-house lab · hospital ward",
+    "visit.cardLabel":"— Book by name —",
+    "visit.cardTitle":"Every visit begins <em>with a written estimate.</em>",
+    "visit.cardBody":"Before any procedure, the chief vet writes a full estimate of services and signs it. No surprise additions. No upselling at the operating table. Routine consultation 320 000 UZS · written estimate included.",
+    "visit.cardCta":"Book · +998 71 268 18 85",
+    "visit.qb1":"Years","visit.qb2":"Theatres","visit.qb3":"Now incl. weekends",
+
+    "final.eyebrow":"— A real surgical practice in Tashkent —",
+    "final.title":"Thirty years. <em>One signature.</em>",
+    "final.p":"Book a consult by name with the chief vet. Reception speaks Russian, Uzbek and English. Saturday and Sunday now open.",
+    "final.cta1":"+998 71 268 18 85","final.cta2":"hello@darel.uz",
+
+    "footer.aboutTitle":"— Darel","footer.about":"Premium veterinary clinic in Tashkent's Yashnabad district. Surgery, diagnostics, hospitalisation. Thirty years under one head veterinarian.",
+    "footer.addrTitle":"— Address","footer.a1":"Mirzo Ulugbek Avenue 1/1-6","footer.a2":"Yashnabad district","footer.a3":"Tashkent · Uzbekistan",
+    "footer.hrsTitle":"— Reception","footer.h1":"Mon–Fri · 09:00 — 18:00","footer.h2":"Sat · 10:00 — 17:00","footer.h3":"Sun · 10:00 — 15:00",
+    "footer.contactTitle":"— Contact","footer.note":"30+ years · 2 operating theatres · 7/7 reception"
+  },
+
+  ru: {
+    "brand.sub":"Ташкент · С 1995",
+    "nav.doctor":"Главврач","nav.svc":"Услуги","nav.eq":"Оборудование","nav.hrs":"Часы","nav.visit":"Контакты","nav.cta":"Записаться",
+    "hero.eyebrow":"Премиум-ветклиника · с 1995 года",
+    "hero.title":"Тридцать лет практики. <em>Две операционные.</em><br/>Один главный ветврач с 1995-го.",
+    "hero.lede":"Darel — одна из старейших премиум-ветклиник Ташкента. Мы делаем мягкотканную и ортопедическую хирургию, УЗИ и рентген, стоматологию и стационар — в реальной хирургической практике, работающей на проспекте Мирзо Улугбека уже <em>три десятилетия.</em>",
+    "hero.cta1":"Записаться","hero.badge":"Яшнабадский · Мирзо Улугбек 1/1-6",
+    "hero.stat1":"Лет практики","hero.stat2":"Операционные","hero.stat3":"Теперь и выходные",
+    "marquee.line":"Хирургия <em>·</em> УЗИ <em>·</em> Рентген <em>·</em> Стоматология <em>·</em> Кардиология <em>·</em> Стационар <em>·</em> Вакцинация <em>·</em>",
+
+    "doc.eyebrow":"Главный ветврач",
+    "doc.title":"Практика, <em>построенная на одной подписи.</em>",
+    "doc.intro":"Darel ведёт один и тот же главврач с момента открытия в 1995-м. Тридцать лет одной руки — редкость для любого медицинского профиля; в частной ветпрактике Центральной Азии — исключительность.",
+    "doc.role":"— Главный ветврач · основатель",
+    "doc.name":"<em>Д-р</em> Главный Ветврач","doc.since":"В практике Darel с 1995 года",
+    "doc.k1":"Основано","doc.k2":"Специализация","doc.v2":"Хирургия · диагностика","doc.k3":"Операционные","doc.k4":"Yandex / 2GIS",
+    "doc.l1":"Darel открылся в 1995-м — когда премиум-ветпрактики для собак и кошек в Ташкенте не существовало вовсе, были только смешанные госуслуги и горстка хирургов мелких животных по совместительству. <em>Наш главврач был одним из этих хирургов.</em>",
+    "doc.l2":"За тридцать лет он провёл несколько тысяч мягкотканных и ортопедических операций, обучил поколение младших ветврачей и удерживал — уникально для частной клиники такого возраста в Ташкенте — одну хирургическую подпись на выписке с первого года до тридцатого.",
+    "doc.l3":"Преемственность — это и есть весь премиум. <span class=\"q\">Шестилетняя кошка, которую мы оперировали в 2020-м, возвращается в 2024-м на контрольное УЗИ — и тот же человек, что выполнил операцию, читает скан.</span> Этого не продаст ни одна сетевая клиника.",
+    "doc.l4":"Мы не самая дешёвая клиника Ташкента — нас открыто признают одной из самых дорогих — и мы за это не извиняемся. Цена отражает тридцать лет одной подписи, две операционные и оборудование, которое мы меняем до выхода из строя, а не после.",
+    "doc.l5":"Если вы читаете это в полночь, потому что ваша кошка перестала есть, <em>записывайтесь на утро по имени, к главврачу.</em>",
+
+    "svc.eyebrow":"Каталог услуг",
+    "svc.title":"Пять <em>направлений практики.</em>",
+    "svc.intro":"Хирургия, диагностика, стоматология, стационар, профилактика. Цены публикуются открыто — каждый визит начинается с письменной сметы, подписанной главврачом.",
+    "svc.book":"Записаться",
+    "s1.meta1":"2 операционные","s1.meta2":"Хирург в штате","s1.name":"Хирургия · <em>мягкие ткани и ортопедия.</em>","s1.lede":"Выполняется главврачом на месте. Предоперационная консультация с полной сметой. Послеоперационный мониторинг в собственном стационаре. Тридцать лет накопленной хирургической практики за каждой подписью.","s1.i1":"Стерилизация · кошка","s1.i2":"Стерилизация · собака < 15 кг","s1.i3":"Мягкотканная хирургия · смета","s1.i4":"Ортопедия · по консультации","s1.i5":"Послеоперационный стационар · день","s1.from":"От 680 000 сум",
+    "s2.meta1":"Заключение в день","s2.name":"Диагностика · <em>УЗИ и рентген</em>","s2.lede":"УЗИ B-режим и доплер, цифровой рентген. Заключения читает главврач, подписываются и выдаются в тот же день.","s2.i1":"УЗИ · одна область","s2.i2":"УЗИ · полная брюшная","s2.i3":"Цифровой рентген · 1 проекция","s2.i4":"Рентген · 2 проекции","s2.from":"От 180 000 сум",
+    "s3.meta1":"Под седацией","s3.name":"Стоматология","s3.lede":"Ультразвуковая чистка, удаление, полировка. Под лёгкой седацией с мониторингом ветеринарной анестезии.","s3.i1":"Чистка · кошка","s3.i2":"Чистка · собака","s3.i3":"Удаление · за зуб","s3.from":"От 160 000 сум",
+    "s4.meta1":"Свой стационар","s4.name":"<em>Стацио</em>нар","s4.lede":"Небольшой собственный стационар для послеоперационного восстановления и капельниц. Кормление и перевязки — тот же ветврач, что принимал на госпитализацию.","s4.i1":"Дневной стационар","s4.i2":"Сутки после операции · кошка","s4.i3":"Сутки после операции · собака","s4.from":"От 220 000 сум",
+    "s5.meta1":"По записи","s5.name":"Профилактика · вакцинация","s5.lede":"Ежегодный осмотр, полная биохимия, программа вакцинации по международному протоколу. Ветпаспорт оформляется на приёме.","s5.i1":"Ежегодный осмотр + биохимия","s5.i2":"Вакцинация · кошка (за дозу)","s5.i3":"Вакцинация · собака (за дозу)","s5.from":"От 220 000 сум",
+
+    "eq.eyebrow":"— Реестр оборудования · открыто —",
+    "eq.title":"Диагностическое оборудование, <em>по производителям.</em>",
+    "eq.body":"Премиум-ветпрактика — это оборудование, которое заменяется до выхода из строя, а не после. Ниже — реестр диагностического и хирургического оборудования с указанием производителя и года приобретения, открыто опубликованный. Этого почти никто в городе не делает.",
+    "eq.quote":"Когда оборудование старше пациента — меняй оборудование, не пациента.",
+    "eq.r1":"УЗИ · B-режим и доплер","eq.r1s":"Брюшная, кардио, мягкие ткани",
+    "eq.r2":"Цифровой рентген","eq.r2s":"2 проекции · DICOM-экспорт",
+    "eq.r3":"Наркозный аппарат","eq.r3s":"Закрытый контур · изофлуран",
+    "eq.r4":"Монитор витальных функций","eq.r4s":"ЭКГ · SpO₂ · капнография",
+    "eq.r5":"Стоматологический скейлер","eq.r5s":"Пьезо · 4 насадки",
+    "eq.r6":"Гематологический анализатор","eq.r6s":"Полная биохимия — в день",
+    "eq.r7":"Биохимический анализатор","eq.r7s":"17 параметров",
+    "eq.r8":"Операционные столы · 2 операционные","eq.r8s":"С подогревом · регулируемые",
+
+    "hrs.eyebrow":"Часы приёма",
+    "hrs.title":"Теперь работаем <em>семь дней в неделю.</em>",
+    "hrs.intro":"Тридцать лет Darel принимал только по будням. С этого сезона держим выходной приём — потому что животные, как и дети, болеют по субботам.",
+    "hrs.weekLabel":"— Будни · устоявшиеся часы",
+    "hrs.weekTitle":"Пн – Пт · <em>по записи.</em>",
+    "hrs.weekendLabel":"— Выходные · НОВОЕ · этот сезон",
+    "hrs.weekendTitle":"Сб – Вс · <em>полный приём.</em>",
+    "hrs.mon":"Понедельник","hrs.tue":"Вторник","hrs.wed":"Среда","hrs.thu":"Четверг","hrs.fri":"Пятница","hrs.sat":"Суббота","hrs.sun":"Воскресенье",
+    "hrs.new":"НОВ","hrs.emerg":"Экстренно","hrs.note":"Заметка","hrs.noteVal":"Хирургия по выходным — только по предварительной записи, звоните в пятницу.",
+
+    "visit.eyebrow":"Клиника",
+    "visit.title":"Яшнабад. <em>По записи.</em>",
+    "visit.hrsLabel":"Приём","visit.hrsVal":"Пн–Пт · 09:00 — 18:00<br/>Сб · 10:00 — 17:00 · Вс · 10:00 — 15:00",
+    "visit.phoneLabel":"Ресепшн","visit.phone2Label":"Хирургия","visit.emailLabel":"Эл. почта","visit.instaLabel":"Instagram","visit.addrLabel":"Адрес","visit.servicesLabel":"На месте",
+    "visit.addr":"Проспект Мирзо Улугбека 1/1-6<br/>Яшнабадский район · Ташкент",
+    "visit.services":"2 операционные · УЗИ · цифровой рентген · собственная лаборатория · стационар",
+    "visit.cardLabel":"— Записаться по имени —",
+    "visit.cardTitle":"Каждый визит начинается <em>с письменной сметы.</em>",
+    "visit.cardBody":"Перед любой процедурой главврач выписывает полную смету услуг и подписывает её. Никаких дополнений-сюрпризов. Никаких допродаж на операционном столе. Стандартная консультация 320 000 сум · смета включена.",
+    "visit.cardCta":"Записаться · +998 71 268 18 85",
+    "visit.qb1":"Лет","visit.qb2":"Операционных","visit.qb3":"Теперь и выходные",
+
+    "final.eyebrow":"— Реальная хирургическая практика в Ташкенте —",
+    "final.title":"Тридцать лет. <em>Одна подпись.</em>",
+    "final.p":"Запишитесь на консультацию по имени к главврачу. Ресепшн отвечает на русском, узбекском и английском. Суббота и воскресенье теперь работают.",
+    "final.cta1":"+998 71 268 18 85","final.cta2":"hello@darel.uz",
+
+    "footer.aboutTitle":"— Darel","footer.about":"Премиум-ветклиника в Яшнабадском районе Ташкента. Хирургия, диагностика, стационар. Тридцать лет под одним главврачом.",
+    "footer.addrTitle":"— Адрес","footer.a1":"Проспект Мирзо Улугбека 1/1-6","footer.a2":"Яшнабадский район","footer.a3":"Ташкент · Узбекистан",
+    "footer.hrsTitle":"— Приём","footer.h1":"Пн–Пт · 09:00 — 18:00","footer.h2":"Сб · 10:00 — 17:00","footer.h3":"Вс · 10:00 — 15:00",
+    "footer.contactTitle":"— Контакты","footer.note":"30+ лет · 2 операционные · 7/7 приём"
+  },
+
+  uz: {
+    "brand.sub":"Toshkent · 1995-yildan",
+    "nav.doctor":"Bosh shifokor","nav.svc":"Xizmatlar","nav.eq":"Jihozlar","nav.hrs":"Soatlar","nav.visit":"Aloqa","nav.cta":"Yozilish",
+    "hero.eyebrow":"Premium-veterinariya klinikasi · 1995-yildan",
+    "hero.title":"O'ttiz yil amaliyot. <em>Ikki operatsion.</em><br/>1995-yildan bitta bosh veterinar.",
+    "hero.lede":"Darel — Toshkentdagi eng eski premium-veterinariya klinikalaridan biri. Biz yumshoq to'qima va ortopedik jarrohlik, UZI va rentgen, stomatologiya va stasionarni amalga oshiramiz — Mirzo Ulug'bek shoh ko'chasida <em>uch o'n yildan beri</em> ishlayotgan haqiqiy jarrohlik amaliyotida.",
+    "hero.cta1":"Yozilish","hero.badge":"Yashnobod · Mirzo Ulug'bek 1/1-6",
+    "hero.stat1":"Yillik amaliyot","hero.stat2":"Operatsionlar","hero.stat3":"Endi dam olish kunlari ham",
+    "marquee.line":"Jarrohlik <em>·</em> UZI <em>·</em> Rentgen <em>·</em> Stomatologiya <em>·</em> Kardiologiya <em>·</em> Stasionar <em>·</em> Emlash <em>·</em>",
+
+    "doc.eyebrow":"Bosh veterinar",
+    "doc.title":"Bitta imzoga <em>qurilgan amaliyot.</em>",
+    "doc.intro":"Darel'ni 1995-yilda ochilganidan beri o'sha bosh shifokor olib boradi. O'ttiz yillik bir qo'l davomiyligi har qanday tibbiyot sohasida noyob; Markaziy Osiyodagi xususiy veterinariya amaliyotida — istisno.",
+    "doc.role":"— Bosh veterinar · ta'sischi",
+    "doc.name":"<em>Dr.</em> Bosh Veterinar","doc.since":"1995-yildan Darel'da amaliyotda",
+    "doc.k1":"Asos solingan","doc.k2":"Mutaxassislik","doc.v2":"Jarrohlik · diagnostika","doc.k3":"Operatsionlar","doc.k4":"Yandex / 2GIS",
+    "doc.l1":"Darel 1995-yilda ochilgan — o'sha paytda Toshkentda mushuk va itlar uchun premium-veterinariya amaliyoti umuman yo'q edi, faqat aralash davlat xizmatlari va kichik hayvonlar uchun bir nechta o'rindosh jarrohlar bor edi. <em>Bizning bosh shifokorimiz o'sha jarrohlardan biri edi.</em>",
+    "doc.l2":"O'ttiz yil ichida u bir necha ming yumshoq to'qima va ortopedik operatsiya o'tkazdi, yosh veterinarlar avlodini o'rgatdi va — Toshkentdagi bunday yoshdagi xususiy klinika uchun noyob holatda — birinchi yildan o'ttizinchi yilga qadar bitta jarrohlik imzosini saqlab qoldi.",
+    "doc.l3":"Davomiylik — bu butun premiumdir. <span class=\"q\">2020-yilda biz operatsiya qilgan olti yoshli mushuk 2024-yilda nazorat UZI uchun qaytib keladi va o'sha operatsiyani o'tkazgan o'sha odam skanni o'qiydi.</span> Buni hech qaysi tarmoq klinikasi sotolmaydi.",
+    "doc.l4":"Biz Toshkentdagi eng arzon klinika emasmiz — bizni ochiq tan olishadi, eng qimmatlardan biri sifatida — va biz bundan kechirim so'ramaymiz. Narx uch o'n yillik bitta imzo, ikki operatsion va biz ishdan chiqishidan oldin almashtiriladigan jihozlarni aks ettiradi, undan keyin emas.",
+    "doc.l5":"Agar siz buni yarim tunda mushukingiz ovqat yemay qo'ygani uchun o'qib o'tirgan bo'lsangiz, <em>ertaga ertalab bosh shifokorga ism bo'yicha yozilib qo'ying.</em>",
+
+    "svc.eyebrow":"Xizmatlar katalogi",
+    "svc.title":"Beshta <em>amaliyot oilasi.</em>",
+    "svc.intro":"Jarrohlik, diagnostika, stomatologiya, stasionar, profilaktika. Narxlar ochiq e'lon qilinadi — har bir tashrif bosh shifokor tomonidan imzolangan yozma smeta bilan boshlanadi.",
+    "svc.book":"Yozilish",
+    "s1.meta1":"2 operatsion","s1.meta2":"Shtatda jarroh","s1.name":"Jarrohlik · <em>yumshoq to'qima va ortopediya.</em>","s1.lede":"Joyida bosh veterinar tomonidan amalga oshiriladi. Operatsiyadan oldingi konsultatsiya to'liq smeta bilan. Operatsiyadan keyingi monitoring o'z stasionarimizda. Har bir imzo orqasida o'ttiz yillik to'plangan jarrohlik amaliyoti.","s1.i1":"Sterilizatsiya · mushuk","s1.i2":"Sterilizatsiya · it < 15 kg","s1.i3":"Yumshoq to'qima jarrohligi · smeta","s1.i4":"Ortopediya · konsultatsiya bo'yicha","s1.i5":"Operatsiyadan keyingi stasionar · kun","s1.from":"680 000 so'mdan",
+    "s2.meta1":"Kunda xulosa","s2.name":"Diagnostika · <em>UZI va rentgen</em>","s2.lede":"B-rejim va Doppler UZI, raqamli rentgen. Xulosalarni bosh shifokor o'qiydi, imzolaydi va o'sha kuni qaytarib beradi.","s2.i1":"UZI · bitta soha","s2.i2":"UZI · to'liq qorin","s2.i3":"Raqamli rentgen · 1 proyeksiya","s2.i4":"Rentgen · 2 proyeksiya","s2.from":"180 000 so'mdan",
+    "s3.meta1":"Sedatsiya ostida","s3.name":"Stomatologiya","s3.lede":"Ultratovushli tozalash, olib tashlash, polirovka. Veterinar anesteziya monitoringi bilan yengil sedatsiya ostida.","s3.i1":"Tozalash · mushuk","s3.i2":"Tozalash · it","s3.i3":"Olib tashlash · har bir tish","s3.from":"160 000 so'mdan",
+    "s4.meta1":"O'z stasionari","s4.name":"<em>Stasio</em>nar","s4.lede":"Operatsiyadan keyingi tiklanish va kapelnitsa uchun kichik o'z stasionar. Ovqatlantirish va bog'lash — qabul qilgan o'sha veterinar.","s4.i1":"Kunduzgi stasionar","s4.i2":"Operatsiyadan keyin sutka · mushuk","s4.i3":"Operatsiyadan keyin sutka · it","s4.from":"220 000 so'mdan",
+    "s5.meta1":"Yozilish bo'yicha","s5.name":"Profilaktika · emlash","s5.lede":"Yillik ko'rik, to'liq biokimyo, xalqaro protokol bo'yicha emlash dasturi. Vetpasport qabulda rasmiylashtiriladi.","s5.i1":"Yillik ko'rik + biokimyo","s5.i2":"Emlash · mushuk (har bir doza)","s5.i3":"Emlash · it (har bir doza)","s5.from":"220 000 so'mdan",
+
+    "eq.eyebrow":"— Jihozlar reestri · ochiq —",
+    "eq.title":"Diagnostik jihozlar, <em>ishlab chiqaruvchilar bo'yicha.</em>",
+    "eq.body":"Premium-veterinariya amaliyoti — bu ishdan chiqishidan oldin almashtiriladigan jihoz, undan keyin emas. Quyida — ishlab chiqaruvchi va sotib olingan yili bilan ochiq e'lon qilingan diagnostik va jarrohlik jihozlari reestri. Buni shaharda deyarli hech kim qilmaydi.",
+    "eq.quote":"Jihoz bemordan kattaroq bo'lsa — jihozni almashtir, bemorni emas.",
+    "eq.r1":"UZI · B-rejim va Doppler","eq.r1s":"Qorin, kardio, yumshoq to'qima",
+    "eq.r2":"Raqamli rentgen","eq.r2s":"2 proyeksiya · DICOM eksport",
+    "eq.r3":"Narkoz apparati","eq.r3s":"Yopiq kontur · izofluran",
+    "eq.r4":"Vital monitor","eq.r4s":"EKG · SpO₂ · kapnografiya",
+    "eq.r5":"Stomatologik skayler","eq.r5s":"Pyezo · 4 nasadka",
+    "eq.r6":"Gematologik analizator","eq.r6s":"To'liq biokimyo — kunda",
+    "eq.r7":"Biokimyo analizatori","eq.r7s":"17 parametr",
+    "eq.r8":"Operatsion stollar · 2 operatsion","eq.r8s":"Isitilgan · sozlanadigan",
+
+    "hrs.eyebrow":"Qabul soatlari",
+    "hrs.title":"Endi <em>haftada yetti kun</em> ishlaymiz.",
+    "hrs.intro":"O'ttiz yil davomida Darel faqat ish kunlarida qabul qildi. Bu mavsumdan dam olish kuni qabulini saqlaymiz — chunki hayvonlar, bolalar singari, shanba kuni ham kasallanadi.",
+    "hrs.weekLabel":"— Ish kunlari · o'rnatilgan soatlar",
+    "hrs.weekTitle":"Du – Ju · <em>yozilish bo'yicha.</em>",
+    "hrs.weekendLabel":"— Dam olish · YANGI · bu mavsum",
+    "hrs.weekendTitle":"Sha – Yak · <em>to'liq qabul.</em>",
+    "hrs.mon":"Dushanba","hrs.tue":"Seshanba","hrs.wed":"Chorshanba","hrs.thu":"Payshanba","hrs.fri":"Juma","hrs.sat":"Shanba","hrs.sun":"Yakshanba",
+    "hrs.new":"YNG","hrs.emerg":"Shoshilinch","hrs.note":"Eslatma","hrs.noteVal":"Dam olish kunlari jarrohlik faqat oldindan yozilish bo'yicha — juma kuni qo'ng'iroq qiling.",
+
+    "visit.eyebrow":"Klinika",
+    "visit.title":"Yashnobod. <em>Yozilish bo'yicha.</em>",
+    "visit.hrsLabel":"Qabul","visit.hrsVal":"Du–Ju · 09:00 — 18:00<br/>Sha · 10:00 — 17:00 · Yak · 10:00 — 15:00",
+    "visit.phoneLabel":"Resepshn","visit.phone2Label":"Jarrohlik","visit.emailLabel":"Pochta","visit.instaLabel":"Instagram","visit.addrLabel":"Manzil","visit.servicesLabel":"Joyida",
+    "visit.addr":"Mirzo Ulug'bek shoh ko'chasi 1/1-6<br/>Yashnobod tumani · Toshkent",
+    "visit.services":"2 operatsion · UZI · raqamli rentgen · o'z laboratoriyasi · stasionar",
+    "visit.cardLabel":"— Ism bo'yicha yozilish —",
+    "visit.cardTitle":"Har bir tashrif <em>yozma smeta bilan boshlanadi.</em>",
+    "visit.cardBody":"Har qanday muolajadan oldin bosh shifokor xizmatlarning to'liq smetasini yozadi va imzolaydi. Hech qanday qo'shimcha-syurprizlar yo'q. Operatsion stolda hech qanday qo'shimcha sotuv yo'q. Standart konsultatsiya 320 000 so'm · smeta kiritilgan.",
+    "visit.cardCta":"Yozilish · +998 71 268 18 85",
+    "visit.qb1":"Yil","visit.qb2":"Operatsion","visit.qb3":"Endi dam olish kunlari ham",
+
+    "final.eyebrow":"— Toshkentdagi haqiqiy jarrohlik amaliyoti —",
+    "final.title":"O'ttiz yil. <em>Bitta imzo.</em>",
+    "final.p":"Bosh shifokorga ism bo'yicha konsultatsiyaga yoziling. Resepshn rus, o'zbek va ingliz tillarida javob beradi. Shanba va yakshanba endi ishlaydi.",
+    "final.cta1":"+998 71 268 18 85","final.cta2":"hello@darel.uz",
+
+    "footer.aboutTitle":"— Darel","footer.about":"Toshkentning Yashnobod tumanidagi premium-veterinariya klinikasi. Jarrohlik, diagnostika, stasionar. Bitta bosh veterinar ostida o'ttiz yil.",
+    "footer.addrTitle":"— Manzil","footer.a1":"Mirzo Ulug'bek shoh ko'chasi 1/1-6","footer.a2":"Yashnobod tumani","footer.a3":"Toshkent · O'zbekiston",
+    "footer.hrsTitle":"— Qabul","footer.h1":"Du–Ju · 09:00 — 18:00","footer.h2":"Sha · 10:00 — 17:00","footer.h3":"Yak · 10:00 — 15:00",
+    "footer.contactTitle":"— Aloqa","footer.note":"30+ yil · 2 operatsion · 7/7 qabul"
+  }
+};
+
+const SUPPORTED = ['en','ru','uz'];
+function pickInitialLang(){
+  const saved = localStorage.getItem('darel_lang');
+  if (saved && SUPPORTED.includes(saved)) return saved;
+  const nav = (navigator.language || 'en').toLowerCase();
+  if (nav.startsWith('ru')) return 'ru';
+  if (nav.startsWith('uz')) return 'uz';
+  return 'en';
+}
+function applyLang(lang){
+  if (!SUPPORTED.includes(lang)) lang = 'en';
+  const dict = I18N[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key] != null) el.textContent = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (dict[key] != null) el.innerHTML = dict[key];
+  });
+  if (lang === 'ru') document.title = 'Darel — Премиум-ветклиника · Ташкент · С 1995';
+  else if (lang === 'uz') document.title = "Darel — Premium-veterinariya klinikasi · Toshkent · 1995-yildan";
+  else document.title = "Darel — Premium Veterinary Clinic · Tashkent · Since 1995";
+  document.querySelectorAll('.lang-switch button').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+  });
+  localStorage.setItem('darel_lang', lang);
+}
+document.querySelectorAll('.lang-switch button').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang')));
+});
+applyLang(pickInitialLang());
+document.getElementById('yr').textContent = new Date().getFullYear();
+const navBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+navBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.addEventListener('click', e => { if (e.target.tagName === 'A') navLinks.classList.remove('open'); });
+</script>
+
+<script type="module">
+  import { animate, stagger, inView, scroll } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  scroll(animate("#progressBar", { scaleX: [0, 1] }, { ease: "linear" }));
+
+  const nav = document.getElementById('nav');
+  const darkSections = document.querySelectorAll('.marquee-section, .equipment, .final-cta, .wordmark-section, footer');
+  const checkNavTheme = () => {
+    const navHeight = 80;
+    let isDark = false;
+    darkSections.forEach(s => {
+      const r = s.getBoundingClientRect();
+      if (r.top < navHeight && r.bottom > navHeight) isDark = true;
+    });
+    nav.classList.toggle('dark', isDark);
+  };
+  window.addEventListener('scroll', checkNavTheme, { passive: true });
+  checkNavTheme();
+
+  if (!reducedMotion) {
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+      const tmp = document.createElement('div');
+      tmp.innerHTML = heroTitle.innerHTML;
+      function wrapChars(node) {
+        const out = document.createDocumentFragment();
+        node.childNodes.forEach(child => {
+          if (child.nodeType === 3) {
+            child.textContent.split('').forEach(c => {
+              if (c === ' ') out.appendChild(document.createTextNode(' '));
+              else { const span = document.createElement('span'); span.className='ch'; span.style.display='inline-block'; span.style.willChange='transform, opacity'; span.textContent=c; out.appendChild(span); }
+            });
+          } else if (child.nodeType === 1) {
+            if (child.tagName === 'BR') out.appendChild(child.cloneNode(true));
+            else { const clone = child.cloneNode(false); clone.appendChild(wrapChars(child)); out.appendChild(clone); }
+          }
+        });
+        return out;
+      }
+      heroTitle.innerHTML = '';
+      heroTitle.appendChild(wrapChars(tmp));
+      animate(heroTitle.querySelectorAll('.ch'), { opacity: [0, 1], y: ['100%', '0%'] }, { delay: stagger(0.018, { startDelay: 0.2 }), type: 'spring', stiffness: 110, damping: 20 });
+    }
+
+    document.querySelectorAll('[data-anim="fade"]').forEach((el, i) => {
+      el.style.opacity = '0';
+      animate(el, { opacity: [0, 1], y: [16, 0] }, { duration: 0.85, ease: [0.2, 0.8, 0.2, 1], delay: 0.4 + i * 0.06 });
+    });
+
+    document.querySelectorAll('[data-counter]').forEach(el => {
+      const target = parseInt(el.getAttribute('data-counter').replace(/\s/g,''), 10);
+      const finalHTML = el.innerHTML;
+      animate(0, target, {
+        duration: 1.8, ease: [0.2, 0.8, 0.2, 1], delay: 0.7,
+        onUpdate: latest => { el.textContent = Math.floor(latest); },
+        onComplete: () => { el.innerHTML = finalHTML; }
+      });
+    });
+
+    /* Compass-like ornament — slow rotation on mouse */
+    const orn = document.getElementById('heroOrn');
+    if (orn) {
+      let mx = 0, my = 0;
+      document.addEventListener('mousemove', e => {
+        mx = (e.clientX / window.innerWidth - 0.5) * 24;
+        my = (e.clientY / window.innerHeight - 0.5) * 24;
+      });
+      function drift() { animate(orn, { x: mx, y: my, rotate: mx * 0.4 }, { type: 'spring', stiffness: 30, damping: 18 }); }
+      setInterval(drift, 100);
+    }
+
+    /* Hero meta tags scroll parallax */
+    document.querySelectorAll('.hero-tag').forEach((el, i) => {
+      scroll(animate(el, { y: [0, -40 - i * 10] }, { ease: "linear" }), { target: document.querySelector(".hero"), offset: ["start start", "end start"] });
+    });
+
+    /* Marquee */
+    const track = document.getElementById('marqueeTrack');
+    if (track) {
+      const m = animate(track, { x: ["0%", "-50%"] }, { duration: 32, ease: "linear", repeat: Infinity });
+      track.parentElement.addEventListener('mouseenter', () => m.speed = 0.2);
+      track.parentElement.addEventListener('mouseleave', () => m.speed = 1);
+    }
+
+    /* Line reveals — manifesto */
+    document.querySelectorAll('[data-anim="line"]').forEach(line => {
+      line.style.opacity = '0';
+      inView(line, () => { animate(line, { opacity: [0, 1], y: [18, 0] }, { duration: 0.85, ease: [0.2, 0.8, 0.2, 1] }); }, { margin: "0px 0px -120px 0px" });
+    });
+
+    /* 3D tilt */
+    document.querySelectorAll('[data-tilt]').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        animate(card, { rotateX: -y * 4, rotateY: x * 4, scale: 1.005 }, { type: 'spring', stiffness: 200, damping: 22 });
+      });
+      card.addEventListener('mouseleave', () => {
+        animate(card, { rotateX: 0, rotateY: 0, scale: 1 }, { type: 'spring', stiffness: 200, damping: 24 });
+      });
+    });
+
+    /* Magnetic */
+    const magBtn = document.getElementById('magneticBtn');
+    if (magBtn) {
+      const wrap = magBtn.parentElement;
+      wrap.addEventListener('mousemove', e => {
+        const rect = wrap.getBoundingClientRect();
+        const x = (e.clientX - rect.left - rect.width/2) * 0.4;
+        const y = (e.clientY - rect.top - rect.height/2) * 0.5;
+        animate(magBtn, { x, y }, { type: 'spring', stiffness: 150, damping: 15 });
+      });
+      wrap.addEventListener('mouseleave', () => { animate(magBtn, { x: 0, y: 0 }, { type: 'spring', stiffness: 200, damping: 18 }); });
+    }
+
+    /* Stagger reveals */
+    document.querySelectorAll('[data-stagger]').forEach(group => {
+      const items = Array.from(group.children);
+      items.forEach(it => { it.style.opacity = '0'; });
+      inView(group, () => {
+        animate(items, { opacity: [0, 1], y: [10, 0] }, { delay: stagger(0.05), duration: 0.5 });
+      }, { margin: "0px 0px -80px 0px" });
+    });
+
+    /* Service cards reveal */
+    inView('.svc-grid', el => {
+      const items = Array.from(el.children);
+      items.forEach(it => { it.style.opacity = '0'; });
+      animate(items, { opacity: [0, 1], y: [16, 0] }, { delay: stagger(0.07), type: 'spring', stiffness: 100, damping: 22 });
+    }, { margin: "0px 0px -80px 0px" });
+
+    /* Wordmark */
+    inView('.wordmark', el => {
+      animate(el, { y: ["18%", "0%"], opacity: [0, 1] }, { duration: 1.1, ease: [0.2, 0.8, 0.2, 1] });
+    }, { margin: "0px 0px -80px 0px" });
+
+    /* Button press — interruptible per ux rule */
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('mousedown', () => animate(btn, { scale: 0.97 }, { duration: 0.08 }));
+      btn.addEventListener('mouseup', () => animate(btn, { scale: 1 }, { type: 'spring', stiffness: 380, damping: 18 }));
+      btn.addEventListener('mouseleave', () => animate(btn, { scale: 1 }, { duration: 0.15 }));
+    });
+  } else {
+    /* Reduced motion — show everything immediately */
+    document.querySelectorAll('[data-anim], [data-anim="line"], [data-stagger]').forEach(el => { el.style.opacity = '1'; });
+    document.querySelectorAll('.svc-grid > *, .eq-table > *').forEach(el => { el.style.opacity = '1'; });
+  }
+</script>
+</body>
+</html>
